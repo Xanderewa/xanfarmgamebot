@@ -1,0 +1,18 @@
+{
+  "name": "xanfarm-gamebot",
+  "version": "1.0.0",
+  "description": "Bot de juego para XanFarm",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No hay pruebas especificadas\" && exit 0"
+  },
+  "keywords": ["telegram", "bot", "xanfarm", "game"],
+  "author": "Alexander",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.13.11",
+    "express": "^5.1.0",
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}
