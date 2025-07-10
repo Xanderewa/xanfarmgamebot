@@ -4,7 +4,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const app = express();
 const PORT = 3000;
 
-// 🌐 Endpoint de salud para monitoreo
+// 🌐 Endpoint base para monitoreo
 app.get('/', (req, res) => {
   res.status(200).send('Bot de XanFarm (juego) activo 🚀');
 });
@@ -13,10 +13,10 @@ app.listen(PORT, () => {
   console.log(`✅ Servidor Express activo en puerto ${PORT}`);
 });
 
-// 🔐 Token desde variable de entorno
+// 🔐 Usar token desde variables de entorno
 const bot = new TelegramBot(process.env.TOKEN, { polling: true });
 
-// 🎮 Comando /start para iniciar la aventura
+// 🎮 Comando /start con botón para jugar
 bot.onText(/\/start/, (msg) => {
   bot.sendMessage(msg.chat.id, '🌾 ¡Bienvenido a XanFarm!\nTocá el botón para comenzar tu aventura:', {
     reply_markup: {
@@ -30,7 +30,7 @@ bot.onText(/\/start/, (msg) => {
   });
 });
 
-// 🔄 Ping cada 10 segundos para mantener activo
+// ⏰ Ping periódico para mantener activo
 setInterval(() => {
   console.log('Ping interno para mantener activo el bot ✅');
 }, 10000);
